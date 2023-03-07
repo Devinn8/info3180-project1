@@ -10,8 +10,8 @@ class PropertyProfile(db.Model):
     bathroom= db.Column(db.Integer)
     location= db.Column(db.String(255))
     price= db.Column(db.Integer)
-    description= db.Column(db.String(400))
     type= db.Column(db.String(10))
+    description= db.Column(db.String(400))
     photo= db.Column(db.String(400))
     
     def __init__(self, title, bedroom, bathroom, location, price, description, type, photo):
@@ -20,6 +20,6 @@ class PropertyProfile(db.Model):
         self.bathroom = bathroom
         self.location = location
         self.price = price
-        self.description = description
         self.type = type
+        self.description = description
         self.photo = photo
