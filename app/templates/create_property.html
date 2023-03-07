@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Add New Property</h1>
+  
+    <form action="{{url_for('property')}}" method="POST">
+      {{ form.csrf_token }}
+      <div class="row">
+        <label class="form-label fw-bold">{{ form.title.label }}</label>
+        {{ form.title (class="form-control")}}
+      </div>
+      <div class="row">
+        <label class="form-label fw-bold">{{ form.description.label }}</label>
+        {{ form.description (class="form-control py-3")}}
+      </div>
+      <div class="row">
+        <div class="col-md-4 mt-3">
+          <label class="form-label fw-bold">{{ form.bedroom.label }}</label>
+          {{ form.bedroom (class="form-control")}}
+        </div>
+        <div class="col-md-4 mt-3">
+          <label class="form-label fw-bold">{{ form.bathroom.label }}</label>
+          {{ form.bathroom (class="form-control")}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mt-3">
+          <label class="form-label fw-bold">{{ form.price.label }}</label>
+          {{ form.price (class="form-control")}}
+        </div>
+        <div class="col-md-4 mt-3">
+          <label class="form-label fw-bold">{{ form.type.label }}</label>
+          {{ form.type (class="form-select")}}
+        </div>
+      </div>
+      <div class="row">
+          <label class="form-label fw-bold">{{ form.location.label }}</label>
+          {{ form.location (class="form-control")}}
+      </div>
+      <div class="row">
+          <label class="form-label fw-bold">{{ form.photo.label }}</label>
+          {{ form.photo (class="form-control")}}
+      </div>
+      <div class="col-md-12 mt-2">
+        <button type="submit" class="px-3 btn btn-primary">Add Property</button>
+      </div>
+    </form>
+  
+{% endblock %}
