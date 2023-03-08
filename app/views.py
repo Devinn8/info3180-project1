@@ -57,6 +57,10 @@ def property():
         
     return render_template('create_property.html', form=form)
             
+@app.route("/uploads/<filename>")
+
+def get_image(filename):
+    return send_from_directory(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER']), filename)
 
 ###
 # The functions below should be applicable to all Flask apps.
