@@ -43,19 +43,21 @@ def property():
         filename = secure_filename(photo.filename)
         photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         title = form.title.data
+        description = form.description.data
         bedroom = form.bedroom.data
         bathroom = form.bathroom.data
-        location = form.location.data
         price = form.price.data
         type = form.type.data
-        description = form.description.data
-        new_property = PropertyProfile(title, bedroom, bathroom, location, price, type, description, filename) 
+        location = form.location.data
+        new_property = PropertyProfile(title, description, bedroom, bathroom, price, type, location, filename) 
         db.session.add(new_property)
         db.session.commit()
-            
+        
+        flash_errors(form)    
         flash('Property successfully added! Yay!!')
         return redirect(url_for('properties'))
-        
+    
+    flash_errors(form)
     return render_template('create_property.html', form=form)
             
 @app.route("/uploads/<filename>")

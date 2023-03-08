@@ -6,15 +6,15 @@ class PropertyProfile(db.Model):
     
     id= db.Column(db.Integer, primary_key=True, autoincrement=True)
     title= db.Column(db.String(100))
+    description= db.Column(db.String(400))
     bedroom= db.Column(db.Integer)
     bathroom= db.Column(db.Integer)
-    location= db.Column(db.String(255))
     price= db.Column(db.Integer)
     type= db.Column(db.String(10))
-    description= db.Column(db.String(400))
+    location= db.Column(db.String(255))
     photo= db.Column(db.String(400))
     
-    def __init__(self, title, bedroom, bathroom, location, price, description, type, photo):
+    def __init__(self, title, description, bedroom, bathroom, price,  type, location, photo):
         self.title = title
         self.bedroom = bedroom
         self.bathroom = bathroom

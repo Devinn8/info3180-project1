@@ -3,7 +3,7 @@
 {% block main %}
 <h1>Add New Property</h1>
   
-    <form action="{{url_for('property')}}" method="POST">
+    <form action="{{url_for('property')}}" method="POST" enctype="multipart/form-data">
       {{ form.csrf_token }}
       <div class="row">
         <label class="form-label fw-bold">{{ form.title.label }}</label>
