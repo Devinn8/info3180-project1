@@ -29,13 +29,13 @@ def about():
 
 @app.route('/properties')
 def properties():
-    properties = PropertyProfile.query.all()
-    return render_template('properties.html', properties=properties)
+    property = PropertyProfile.query.all()
+    return render_template('properties.html', property=property)
 
 
 @app.route('/property/create', methods=['POST','GET'])
 def property():
-    flash("I am here!")
+    #flash("I am here!")
     form = PropertyForm()
     ##if request.method == 'POST':
     if form.validate_on_submit():
@@ -51,10 +51,8 @@ def property():
         location = form.location.data
         new_property = PropertyProfile(title, description, bedroom, bathroom, price, type, location, filename) 
         db.session.add(new_property)
-        db.session.commit()
-        
-        flash_errors(form)    
-        flash('Property successfully added! Yay!!')
+        db.session.commit()    
+        flash('Property successfully added! Yay!!', 'success')
         return redirect(url_for('properties'))
     
     flash_errors(form)
