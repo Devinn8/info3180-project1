@@ -32,6 +32,11 @@ def properties():
     property = PropertyProfile.query.all()
     return render_template('properties.html', property=property)
 
+@app.route('/properties/<propertyid>')
+def this_property(propertyid):
+    property = PropertyProfile.query.filter_by(id=propertyid).first()
+    return render_template('property.html',property=property)
+
 
 @app.route('/property/create', methods=['POST','GET'])
 def property():
