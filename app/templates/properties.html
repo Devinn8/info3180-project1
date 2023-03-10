@@ -5,7 +5,7 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for property in property %}
         <div class="col">
-            <div class="card rounded-top">
+            <div class="card rounded-top" style="height: 30rem;">
                 <img src="{{ url_for('get_image', filename = property.photo) }}" class="card-img-top rounded-top" alt="">
                 <div class="card-body shadow">
                     <h5 class="card-title">{{ property.title }}</h5>
